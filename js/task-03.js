@@ -12,11 +12,19 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+
+// Create images list
 const galleryEl = document.querySelector('.gallery')
 
-for (const item of images) {
-  const image = document.createElement('img');
- 
-  galleryEl.append(image);
+// Create a list of image properties
+for (const img of images) {
+  const imageEl = document.createElement('img');
+  imageEl.src = img.url;
+  imageEl.alt = img.alt;
+  imageEl.width = '480'
+  imageEl.height = '270'
+  galleryEl.append(imageEl);
 }
+
+// Output to the console our images list
 console.log(galleryEl)

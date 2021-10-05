@@ -7,7 +7,7 @@ const ingredients = [
   'Condiments',
 ];
 // Create an elements list
-const ingredientsList = document.createElement('ul') 
+const ingredientsList = document.querySelector('#ingredients') 
 
 // Create a list of element properties
 for (const ingredient of ingredients) {
