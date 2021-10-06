@@ -21,8 +21,8 @@ for (const img of images) {
   const imageEl = document.createElement('img');
   imageEl.src = img.url;
   imageEl.alt = img.alt;
-  imageEl.width = '480'
-  imageEl.height = '270'
+  imageEl.width = '240'
+  imageEl.height = '160'
   galleryEl.append(imageEl);
 }
 
