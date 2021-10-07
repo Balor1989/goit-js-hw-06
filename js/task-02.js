@@ -10,12 +10,12 @@ const ingredients = [
 const ingredientsList = document.querySelector('#ingredients') 
 
 // Create a list of element properties
-for (const ingredient of ingredients) {
-  const item = document.createElement('li');
-  item.textContent = ingredient;
-  item.classList.add('item')
-
-ingredientsList.append(item)
-}
+const items = ingredients.map(ingredient => {
+  const createdEl = document.createElement('li');
+  createdEl.textContent = ingredient;
+  createdEl.classList.add('item')
+  return createdEl
+})
 // Output to the console our elements list
+ingredientsList.append(...items)
 console.log(ingredientsList)

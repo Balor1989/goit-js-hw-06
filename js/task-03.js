@@ -17,14 +17,14 @@ const images = [
 const galleryEl = document.querySelector('.gallery')
 
 // Create a list of image properties
-for (const img of images) {
+const items = images.map(img => {
   const imageEl = document.createElement('img');
   imageEl.src = img.url;
   imageEl.alt = img.alt;
   imageEl.width = '240'
   imageEl.height = '160'
-  galleryEl.append(imageEl);
-}
-
+  return imageEl
+})
+galleryEl.append(...items);
 // Output to the console our images list
 console.log(galleryEl)
