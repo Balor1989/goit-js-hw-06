@@ -1,44 +1,48 @@
+// Выполняет привязку ссылок к переменным
 const valueToInput = document.querySelector('input')
-console.log(valueToInput)
 const createBtn = document.querySelector('[data-create]');
-console.log(createBtn);
 const destroyBtn = document.querySelector('[data-destroy]');
-console.log(destroyBtn);
-const divs = document.querySelector('#boxes');
+const divsContainer = document.querySelector('#boxes');
 
-
-function getRandomHexColor() {
+// Функция генерирует случайный цвет
+const getRandomHexColor = () => {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 };
-
+// Функция создает атрибут 'counter' и записывает в него значение input
 const onCreateCounterInValueInput = (value) => {
   valueToInput.setAttribute('counter', value.currentTarget.value)
-  console.log(valueToInput)
 };
-
+// Функция создает количество квадратов, указанных в атрибуте 'counter' переменной "valueToInput"
 const onCreateBoxes = () => {
-  for (let i = 1; i <= 5; i += 1){
+  let startBoxSizing = 20;
+
+  for (let i = 1; i <= valueToInput.getAttribute('counter'); i += 1) {
+    
+    startBoxSizing += 10;
     const createdDiv = document.createElement('div');
-    createdDiv.classList.add('box-item')
-    createdDiv.style.width = '50px'
-    createdDiv.style.height = '50px'
-    createdDiv.style.outline = '2px solid black'
-    createdDiv.style.backgroundColor = `${getRandomHexColor()}`
-    createdDiv.style.margin = '15px'
    
-  console.log(createdDiv)
+    createdDiv.classList.add('box-item')
+    createdDiv.style.width = `${startBoxSizing}px`
+    createdDiv.style.height = `${startBoxSizing}px`
+    createdDiv.style.border = '2px solid black'
+    createdDiv.style.backgroundColor = `${getRandomHexColor()}`
+    createdDiv.style.marginTop = '10px'
+    createdDiv.style.verticalAlign = 'middle'
 
-  divs.appendChild(createdDiv);
+  divsContainer.appendChild(createdDiv);
   }
-console.log(divs)
 };
-
-const onDestroyBtn = () => divs.innerHTML = '';
+// Функция очищает добавленные теги, удаляет атрибут 'counter' у переменной "valueToInput" и очищает число в "input"
+const onDestroyBtn = () => {
+  divsContainer.innerHTML = '';
+  valueToInput.removeAttribute('counter');
+  valueToInput.value = '';
+};
   
 valueToInput.addEventListener('input', onCreateCounterInValueInput);
 createBtn.addEventListener('click', onCreateBoxes);
 destroyBtn.addEventListener('click', onDestroyBtn);
-console.log(divs)
+
 
 
 
