@@ -16,10 +16,10 @@ const onSubmitLoginBtn = event => {
     // Сбор данных в переменную 'userInformation'
     userInformation.password = password.value;
     userInformation.email = email.value
+     console.log(userInformation)
     formToLogin.reset()
+    
 }
- console.log(userInformation)
+
 
 formToLogin.addEventListener('submit', onSubmitLoginBtn)
-
-
