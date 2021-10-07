@@ -15,7 +15,7 @@ const onCreateCounterInValueInput = (value) => {
 // Функция создает количество квадратов, указанных в атрибуте 'counter' переменной "valueToInput"
 const onCreateBoxes = () => {
   let startBoxSizing = 20;
-
+  let allDivsEl = [];
   for (let i = 1; i <= valueToInput.getAttribute('counter'); i += 1) {
     
     startBoxSizing += 10;
@@ -29,8 +29,9 @@ const onCreateBoxes = () => {
     createdDiv.style.marginTop = '10px'
     createdDiv.style.verticalAlign = 'middle'
 
-  divsContainer.appendChild(createdDiv);
+  allDivsEl.push(createdDiv);
   }
+  divsContainer.append(...allDivsEl)
 };
 // Функция очищает добавленные теги, удаляет атрибут 'counter' у переменной "valueToInput" и очищает число в "input"
 const onDestroyBtn = () => {
