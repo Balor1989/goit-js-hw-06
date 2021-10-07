@@ -22,6 +22,7 @@ button {
   padding: 8px 12px;
   cursor: pointer;
 }
+/* Стили для 3-й задачи */
 .gallery {
   padding: 0 15px;
   display: flex;
